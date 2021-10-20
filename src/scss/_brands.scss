@@ -1,0 +1,16 @@
+//----------------------------------------------------------------
+// Brands
+//----------------------------------------------------------------
+.brands {
+  &-item {
+    filter: grayscale(1);
+    height: auto;
+    margin: bdfRemSize(0 15 15);
+    max-width: bdfRemSize(120);
+    transition: filter 200ms ease;
+
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+}

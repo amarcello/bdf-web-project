@@ -1,0 +1,9 @@
+mixin brands({content} = {})
+  .brands.text-center
+    .d-flex.flex-wrap.align-items-center.justify-content-center
+      each brand in content
+        img.brands-item(
+          src=`dist/images/clients/${brand.logo}`,
+          alt=`${brand.name} logo`,
+          aria-label=`${brand.name} logo`
+        )

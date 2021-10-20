@@ -1,0 +1,126 @@
+include partials/_all
+include content/pages/index
+
+doctype html
+html(lang='en', prefix='og: http://ogp.me/ns#')
+  +head({title: head.title, description: head.description, url: head.url})
+    //-
+      Uncomment GTM DataLayer when updating tag with the proper ID
+      +gtm-datalayer({ pageType: 'landing-page', category: 'website' })
+
+  body
+    +navigation({content: navigation})
+
+    main
+      section#home(data-scroll-watch)
+        .intro-wrapper
+          .intro
+            .container.text-center
+              .intro-inner.p-relative
+                h1.intro-title.text-600.color-base-white We build brands, digital campaigns for your businesses.
+
+      section#whatwedo(data-scroll-watch)
+        .whatwedo-wrapper.pdng-top-90.pdng-bottom-50
+          .container.text-center.p-relative
+            +sectionHeader({content: whatwedo.header})
+            .row 
+              each item in whatwedo.items
+                .col-12.col-lg.mrgn-bottom-20.mrgn-lg-bottom-0
+                  +card({content: item})
+
+      section#portfolio.mrgn-bottom-60.mrgn-lg-top-90(data-scroll-watch)
+        .bg-base-black.pdng-top-90.pdng-lg-top-150.pdng-bottom-150
+          .container
+            +sectionHeader({content: portfolio.header})
+        .portfolio-wrapper
+          .portfolio
+            each item in portfolio.items
+              .portfolio-item
+                +cardPortfolio({content: item})
+
+      section#facts.mrgn-sm-bottom-30.pdng-top-90(data-scroll-watch)
+        .container
+          +sectionHeader({content: facts.header})
+          .row.mrgn-top-90.justify-content-center.text-center
+            each item in facts.items
+              .col-6.col-sm.mrgn-bottom-30.mrgn-sm-bottom-0
+                .fact(data-counter=item.count, data-counter-unit=item.unit)
+                  i.color-primary.fa.fa-3x(class=`fa-${item.icon}`)
+                  p.h2.text-600.mrgn-top-20.mrgn-bottom-15.fact-counter 0
+                  p.text-500.color-grey= item.description
+
+      section.mrgn-bottom-60.pdng-top-90
+        .testimonial-wrapper
+          .bg-grey-bg.pdng-bottom-150
+            .container
+              .row
+                .col-12.col-lg-3.mrgn-lg-right-20.mrgn-xl-right-0
+                  h2.text-600.text-center.text-lg-left.mrgn-bottom-30.mrgn-lg-bottom-0 Feedbacks from our clients.
+                .col
+                  .testimonial.mrgn-top-15
+                    each item in _globalTestimonials
+                      +cardTestimonial({content: item})
+
+      .brands-wrapper
+        .container 
+          +brands({content: _globalBrands})
+
+      section#blog.mrgn-bottom-60.pdng-top-60.pdng-lg-top-0.mrgn-top-45(
+        data-scroll-watch
+      )
+        .bg-primary.pdng-top-75.pdng-lg-top-150.pdng-bottom-75
+          .container
+            +sectionHeader({content: blog.header})
+        .blog-wrapper
+          .blog.d-flex.flex-wrap.justify-content-center.mrgn-bottom-80
+            .blog-loader
+            //- Posts will be loaded via API
+
+          p.text-center
+            a.btn.btn-primary(
+              href='//unsplash.com',
+              rel='noreferrer',
+              target='_blank',
+              title='Check more blog posts',
+              aria-label='Check more blog posts'
+            ) More blog posts
+
+      section#team.mrgn-bottom-40.mrgn-top-10.pdng-top-80(data-scroll-watch)
+        .container.text-center
+          +sectionHeader({content: team.header})
+          .team
+            each item in _globalTeam
+              +cardTeam({content: item})
+
+      section#start.pdng-top-60.pdng-lg-top-0.mrgn-top-90(data-scroll-watch)
+        .start.bg-grey-light
+          .start-col.bg-primary
+            h2.start-title Start a new project?
+          .start-col
+            .start-info
+              p.start-info-title.mrgn-bottom-10 Visit our studio at
+              p.color-grey.mrgn-bottom-60= _globalContact.address
+              p.start-info-title.mrgn-bottom-10 Message us
+              p.mrgn-bottom-20 
+                a.color-grey(
+                  href=`mailto:${_globalContact.email}`,
+                  title='Message us'
+                )= _globalContact.email
+                br
+                a.color-grey(
+                  href=`tel:${_globalContact.phone.replace(/[ )(]/g,'')}`,
+                  title='Call us'
+                )= _globalContact.phone
+              +socialLinks({content: _globalSocial})
+            .start-map-wrapper
+              .start-map
+                iframe(
+                  width='385',
+                  height='500',
+                  style='border: 0',
+                  loading='lazy',
+                  allowfullscreen,
+                  src='https://www.google.com/maps/embed/v1/view?zoom=10&center=40.7128%2C-74.0060&key=AIzaSyDmnXbX4BxSBlFbEF5ekT9opg2ppB1iqBU'
+                )
+
+    +footer

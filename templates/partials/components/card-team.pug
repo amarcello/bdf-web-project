@@ -1,0 +1,27 @@
+mixin cardTeam({content} = {})
+  .team-item
+    .team-item-details
+      p.text-center
+        each social, key in content.social
+          -
+            var socialIcon = key === "facebook" ? "facebook-square" : key === "instagram" ? "instagram" : "twitter";
+          a.team-item-social.color-base-white(
+            href=social,
+            title=`${content.name} profile on ${key}`,
+            rel='noreferrer',
+            target='_blank'
+          ) #[i.fa(class=`fa-${socialIcon}`)]
+      .team-item-info.text-center
+        p.h3.text-500.color-base-white= content.name
+        p.color-base-white-50.mrgn-top-10= content.role
+
+    picture.team-item-picture
+      source(
+        srcset=`/dist/images/team/${content.photo}-600.jpg`,
+        media='(min-width: 960px)'
+      )
+      img.team-item-img(
+        src=`/dist/images/team/${content.photo}-300.jpg`,
+        alt=`Photo of team member ${content.name}`,
+        loading='lazy'
+      )

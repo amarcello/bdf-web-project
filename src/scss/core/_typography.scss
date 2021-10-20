@@ -1,0 +1,118 @@
+//----------------------------------------------------------------
+// Headings
+//----------------------------------------------------------------
+h1,
+.h1 {
+  @include bdfFontRem(48);
+  line-height: 1.1;
+
+  @include media-breakpoint-up(lg) {
+    @include bdfFontRem(70);
+  }
+}
+
+h2,
+.h2 {
+  @include bdfFontRem(36);
+  line-height: 1.3;
+
+  @include media-breakpoint-up(lg) {
+    @include bdfFontRem(48);
+  }
+}
+
+h3,
+.h3 {
+  @include bdfFontRem(18, 20);
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  font-family: $font-primary;
+  margin-bottom: 0;
+}
+
+//----------------------------------------------------------------
+// Text/Copy
+//----------------------------------------------------------------
+p,
+.text {
+  @extend %font-primary-400;
+  @include bdfFontRem(16, 21);
+  margin-bottom: 0;
+}
+
+.text {
+  &-underline {
+    text-decoration: underline;
+  }
+}
+
+//----------------------------------------------------------------
+// Label
+//----------------------------------------------------------------
+label,
+.label {
+  @include bdfFontRem(14, 19, 2);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+//----------------------------------------------------------------
+// Text Alignment
+//----------------------------------------------------------------
+@each $align in $font-text-alignments {
+  .text-#{$align} {
+    text-align: $align;
+  }
+}
+
+@each $align in $font-text-alignments {
+  @each $breakpoint in map-keys($bdfBreakpoints) {
+    .text-#{$breakpoint}-#{$align} {
+      @include media-breakpoint-up(#{$breakpoint}) {
+        text-align: $align;
+      }
+    }
+  }
+}
+
+//----------------------------------------------------------------
+// Text Family
+//----------------------------------------------------------------
+@each $type, $name in $bdfFonts {
+  .text-#{$type} {
+    font-family: $name;
+  }
+}
+
+//----------------------------------------------------------------
+// Text Styles
+//----------------------------------------------------------------
+@each $style in $font-text-styles {
+  .text-#{$style} {
+    font-style: $style;
+  }
+}
+
+//----------------------------------------------------------------
+// Text Transforms
+//----------------------------------------------------------------
+@each $transform in $font-transform-cases {
+  .text-#{$transform} {
+    text-transform: $transform;
+  }
+}
+
+//----------------------------------------------------------------
+// Text Weight
+//----------------------------------------------------------------
+@each $weight in $font-weights {
+  .text-#{$weight} {
+    font-weight: $weight;
+  }
+}

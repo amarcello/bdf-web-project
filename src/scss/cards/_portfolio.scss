@@ -1,0 +1,46 @@
+//----------------------------------------------------------------
+// Card/Portfolio
+//----------------------------------------------------------------
+&-portfolio {
+  @extend .p-relative;
+  display: block;
+  height: 100%;
+  max-width: 100%;
+
+  &:hover {
+    .card-portfolio {
+      &-img {
+        filter: grayscale(1);
+      }
+
+      &-title {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-img {
+    @extend .p-absolute;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: all 200ms ease;
+    width: 100%;
+  }
+
+  &-title {
+    @extend .p-relative;
+    align-items: center;
+    background-color: rgba($bdf-primary, 0.9);
+    color: $bdf-base-white;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    opacity: 0;
+    transition: all 200ms ease;
+    width: 100%;
+    z-index: 0;
+  }
+}

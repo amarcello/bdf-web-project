@@ -1,0 +1,12 @@
+//----------------------------------------------------------------
+// Testimonials
+//----------------------------------------------------------------
+.testimonial {
+  display: grid;
+  grid-gap: bdfRemSize(30);
+  grid-template-columns: repeat(1, 1fr);
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

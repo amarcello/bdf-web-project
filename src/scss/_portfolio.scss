@@ -1,0 +1,44 @@
+//----------------------------------------------------------------
+// Portfolio
+//----------------------------------------------------------------
+.portfolio {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(1, 1fr);
+  margin: 0 auto;
+  max-width: bdfRemSize(1662);
+  padding: 0 bdfRemSize(15);
+
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &-item {
+    min-height: bdfRemSize(300);
+
+    @include media-breakpoint-up(lg) {
+      min-height: bdfRemSize(408);
+    }
+
+    &:nth-child(1) {
+      @include media-breakpoint-up(lg) {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+    }
+
+    &:nth-child(2) {
+      @include media-breakpoint-up(lg) {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  &-wrapper {
+    margin-top: bdfRemSize(-110);
+  }
+}

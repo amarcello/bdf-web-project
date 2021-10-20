@@ -1,0 +1,29 @@
+@use 'sass:color';
+//----------------------------------------------------------------
+// Button
+//----------------------------------------------------------------
+[class*='btn-'],
+.btn {
+  @extend %font-primary-500;
+  @extend .shadow;
+  @include bdfFontRem(16, 22);
+  border-radius: bdfRemSize(6);
+  padding: bdfRemSize(20 40);
+  transition: all 200ms ease;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn {
+  &-primary {
+    background-color: $bdf-primary;
+    color: $bdf-base-white;
+
+    &:hover {
+      background-color: color.scale($bdf-primary, $lightness: -50%);
+      color: $bdf-base-white;
+    }
+  }
+}

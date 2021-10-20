@@ -1,0 +1,220 @@
+//----------------------------------------------------------------
+// Navigation
+//----------------------------------------------------------------
+.navigation {
+  align-items: center;
+  display: flex;
+  min-height: bdfRemSize($navigation-height-mobile);
+  padding: bdfRemSize(8 0);
+  position: relative;
+
+  @include media-breakpoint-up(lg) {
+    height: bdfRemSize($navigation-height-desktop);
+  }
+
+  &-branding {
+    display: flex;
+    flex: auto;
+    justify-content: flex-start;
+
+    @include media-breakpoint-up(lg) {
+      flex: 1;
+    }
+
+    &-link {
+      align-items: flex-start;
+      display: inline-flex;
+      transition: opacity 200ms ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &-item {
+        display: inline-flex;
+
+        & + & {
+          margin-left: bdfRemSize(4);
+        }
+      }
+    }
+
+    &-logo {
+      max-height: bdfRemSize(24);
+
+      @include media-breakpoint-up(lg) {
+        max-height: bdfRemSize(47);
+      }
+    }
+  }
+
+  &-hamburger {
+    align-items: center;
+    background: none;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    height: bdfRemSize(24);
+    justify-content: center;
+    padding: 0;
+    width: bdfRemSize(24);
+
+    &:hover {
+      .navigation-hamburger-bar {
+        background: $bdf-base-white;
+      }
+    }
+
+    &-bar {
+      background: rgba($bdf-base-white, 0.8);
+      border-radius: 4px;
+      display: block;
+      height: 2px;
+      transition: all 200ms ease;
+      width: bdfRemSize(16);
+
+      &:nth-child(even) {
+        margin: 3px 0;
+      }
+    }
+  }
+
+  &-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: bdfRemSize(40);
+    position: absolute;
+    text-align: center;
+    top: bdfRemSize($navigation-height-mobile);
+    transition: all 200ms ease;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+      position: static;
+    }
+
+    &-item {
+      @extend %font-primary-600;
+      @include bdfFontRem(16);
+
+      @include media-breakpoint-up(lg) {
+        animation: none;
+        display: flex;
+        justify-content: center;
+        position: relative;
+      }
+
+      & + & {
+        margin-top: bdfRemSize(15);
+
+        @include media-breakpoint-up(lg) {
+          margin-left: bdfRemSize(25);
+          margin-top: 0;
+        }
+      }
+
+      a {
+        color: rgba($bdf-base-white, 0.7);
+
+        &:active,
+        &:hover {
+          color: $bdf-base-white;
+        }
+      }
+
+      &-active {
+        a {
+          color: $bdf-base-white;
+        }
+      }
+    }
+  }
+
+  &-open {
+    background-color: $bdf-grey;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 9999;
+
+    .navigation {
+      &-menu {
+        display: block;
+        padding: bdfRemSize(8 0);
+      }
+
+      &-hamburger-bar {
+        &:first-child {
+          transform: rotate(45deg);
+        }
+
+        &:last-child {
+          margin-top: -2px;
+          transform: rotate(-45deg);
+        }
+
+        &:nth-child(even) {
+          display: none;
+        }
+      }
+    }
+
+    &.navigation-wrapper {
+      background: linear-gradient(
+        -45deg,
+        rgba($bdf-orange, 1),
+        rgba($bdf-pink, 1),
+        rgba($bdf-blue, 1),
+        rgba($bdf-green, 1)
+      );
+    }
+  }
+
+  &-wrapper {
+    background: linear-gradient(
+      -45deg,
+      rgba($bdf-orange, 0.9),
+      rgba($bdf-pink, 0.9),
+      rgba($bdf-blue, 0.9),
+      rgba($bdf-green, 0.9)
+    );
+    position: fixed;
+    top: 0;
+    transition: all 300ms ease;
+    z-index: 9999;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      background: transparent;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+    }
+
+    &-hidden {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+
+    &-visible {
+      @extend .shadow;
+      background: linear-gradient(
+        -45deg,
+        rgba($bdf-orange, 0.9),
+        rgba($bdf-pink, 0.9),
+        rgba($bdf-blue, 0.9),
+        rgba($bdf-green, 0.9)
+      );
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

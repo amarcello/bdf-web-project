@@ -1,0 +1,24 @@
+include ../content/nav-links
+
+mixin navigation({ content = data } = {})
+  .navigation-wrapper
+    .container
+      nav.navigation
+        .navigation-branding
+          a.navigation-branding-link(href='#home', rel='home')
+            img.brand.navigation-branding-logo(
+              src='/dist/images/logo-brook.png',
+              alt='Brook Logo',
+              aria-label='Brook Logo'
+            )
+        .navigation-hamburger-wrapper.d-lg-none
+          button.navigation-hamburger(aria-label='Open menu on mobile')
+            each item in [1,2,3]
+              span.navigation-hamburger-bar
+
+        ul.navigation-menu
+          each item, index in navLinks
+            li.navigation-menu-item(
+              class=index === 0 ? "navigation-menu-item-active" : ""
+            )
+              a(href=item.link, title=item.label, target=item.target)= item.label

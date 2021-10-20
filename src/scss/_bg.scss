@@ -1,0 +1,59 @@
+//----------------------------------------------------------------
+// Backgrounds
+//----------------------------------------------------------------
+.testimonial-wrapper {
+  @extend .o-hidden;
+  @extend .p-relative;
+  $top-size-mobile: bdfRemSize(132);
+  $top-size-desktop: bdfRemSize(264);
+  background: url('images/bg-waves.png') no-repeat center top;
+  background-size: auto $top-size-mobile;
+  padding-top: $top-size-mobile;
+
+  @include media-breakpoint-up(lg) {
+    background-size: auto $top-size-desktop;
+    padding-top: $top-size-desktop;
+  }
+
+  &:after {
+    @extend .p-absolute;
+    background: url('images/bg-our-clients.svg') no-repeat bottom center;
+    background-size: 100% auto;
+    bottom: 0;
+    content: '';
+    height: bdfRemSize(289);
+    width: 100%;
+  }
+}
+
+.whatwedo-wrapper {
+  @extend .o-hidden;
+  @extend .p-relative;
+
+  &:after,
+  &:before {
+    @extend .p-absolute;
+    background: url('images/bg-8.png') no-repeat top left;
+    background-size: cover;
+    content: '';
+    height: bdfRemSize(985);
+    top: 0;
+    width: bdfRemSize(564);
+    z-index: -1;
+  }
+
+  &:after {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+      right: 0;
+      transform: translate(50%, -16%);
+    }
+  }
+
+  &:before {
+    left: 0;
+    transform: translate(-16%, -50%) rotate(-90deg);
+  }
+}

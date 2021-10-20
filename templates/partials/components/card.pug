@@ -1,0 +1,13 @@
+mixin card({content} = {})
+  .card.pdng-10.shadow-hover
+    .card-inner.border-grey-light.pdng-top-50.pdng-lg-top-70.pdng-bottom-50.pdng-left-30.pdng-right-30
+      i.fa.fa-3x(class=`fa-${content.icon}`)
+      h3.mrgn-top-20.mrgn-lg-top-50.mrgn-bottom-20.text-600= content.title
+      p.color-grey.mrgn-bottom-30= content.description
+      a.link-more(
+        href=content.link,
+        rel='noreferrer',
+        target='_blank',
+        title=`More details about ${content.title}`,
+        aria-label=`More details about ${content.title}`
+      ) More details

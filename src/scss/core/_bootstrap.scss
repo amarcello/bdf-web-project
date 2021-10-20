@@ -1,0 +1,18 @@
+//----------------------------------------------------------------
+// Bootstrap Vars
+//----------------------------------------------------------------
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1170px,
+) !default;
+
+$link-color: $bdf-primary;
+$link-hover-color: $bdf-base-black;
+
+//----------------------------------------------------------------
+// Bootstrap Grid Import
+//----------------------------------------------------------------
+@import 'node_modules/bootstrap/scss/bootstrap-reboot';
+@import 'node_modules/bootstrap/scss/bootstrap-grid';

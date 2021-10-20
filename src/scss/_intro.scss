@@ -1,0 +1,62 @@
+//----------------------------------------------------------------
+// Intro
+//----------------------------------------------------------------
+.intro {
+  animation: gradientBg 10s ease infinite;
+  background: linear-gradient(
+    -45deg,
+    rgba($bdf-orange, 0.5),
+    rgba($bdf-pink, 0.5),
+    rgba($bdf-blue, 0.5),
+    rgba($bdf-green, 0.5)
+  );
+  background-size: 400% 400%;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: bdfRemSize($navigation-height-desktop);
+  }
+
+  &,
+  &-inner,
+  .container {
+    height: 100%;
+  }
+
+  &-inner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &:before {
+      @extend .p-absolute;
+      border: 7.5vw solid rgba($bdf-base-white, 0.15);
+      content: '';
+      height: 70vw;
+      width: 70vw;
+
+      @include media-breakpoint-up(md) {
+        border-width: 7.5vh;
+        height: 50vh;
+        width: 50vh;
+      }
+    }
+  }
+
+  &-title {
+    animation: fadeIn 2s linear;
+  }
+
+  &-wrapper {
+    @extend .o-hidden;
+    @extend .p-relative;
+    background: url('images/bg-intro.jpg') no-repeat center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      margin-top: bdfRemSize(-$navigation-height-desktop);
+    }
+  }
+}

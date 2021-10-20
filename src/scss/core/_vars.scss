@@ -1,0 +1,63 @@
+//----------------------------------------------------------------
+// Breakpoints
+//----------------------------------------------------------------
+$bdfBreakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+//----------------------------------------------------------------
+// Color
+//----------------------------------------------------------------
+// Palette
+$bdfPalette: (
+  base-black: #000,
+  base-white: #fff,
+  primary: #0038e3,
+  grey: #999999,
+  grey-bg: #f5f5f5,
+  grey-dark: #222222,
+  grey-light: #eeeeee,
+  blue: #23a6d5,
+  green: #23d5ab,
+  orange: #ee7752,
+  pink: #e73c7e,
+) !default;
+
+// Variables
+$bdf-base-black: #000000;
+$bdf-base-white: #ffffff;
+$bdf-primary: #0038e3;
+$bdf-grey: #999999;
+$bdf-grey-bg: #f5f5f5;
+$bdf-grey-dark: #222222;
+$bdf-grey-light: #eeeeee;
+$bdf-blue: #23a6d5;
+$bdf-green: #23d5ab;
+$bdf-orange: #ee7752;
+$bdf-pink: #e73c7e;
+
+//----------------------------------------------------------------
+// Fonts
+//----------------------------------------------------------------
+$bdfFonts: (
+  primary: 'Montserrat',
+) !default;
+
+$font-base: 16;
+$font-primary: 'Montserrat', sans-serif;
+$font-weights: 300, 400, 500, 600, 700, 800, 900;
+$font-text-alignments: left, center, right, justify;
+$font-text-styles: italic, normal;
+$font-transform-cases: lowercase, uppercase;
+
+//----------------------------------------------------------------
+// Structure
+//----------------------------------------------------------------
+$navigation-height-mobile: 60;
+$navigation-height-desktop: 96;
+$spacing-multiple: 5;
+$spacing-directions: null, 'top', 'right', 'bottom', 'left';

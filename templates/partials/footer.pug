@@ -1,0 +1,53 @@
+include ../content/footer-links
+
+mixin footer
+  footer.bg-base-black.color-base-white.pdng-top-65.pdng-lg-top-150.pdng-bottom-65
+    .container
+      .row.mrgn-bottom-55.mrgn-lg-bottom-110.text-center.text-lg-left
+        .col-12.col-lg-6.mrgn-bottom-45.mrgn-lg-bottom-0
+          img.brand(
+            src='/dist/images/logo-brook.png',
+            alt='Brook Logo',
+            aria-label='Brook Logo'
+          )
+        .col-12.col-lg-3.mrgn-bottom-45.mrgn-lg-bottom-0
+          p.footer-title About Us
+          ul.footer-links
+            each item in footerLinks
+              li
+                a.color-grey(
+                  href=item.link,
+                  title=item.label,
+                  target=item.target
+                )= item.label
+        .col-12.col-lg-3
+          p.footer-title Connect
+          p.mrgn-bottom-20.mrgn-top-25.color-grey= _globalContact.address
+          p.mrgn-bottom-45 
+            a.color-grey(
+              href=`mailto:${_globalContact.email}`,
+              title='Message us'
+            )= _globalContact.email
+            br
+            a.color-grey(
+              href=`tel:${_globalContact.phone.replace(/[ )(]/g,'')}`,
+              title='Call us'
+            )= _globalContact.phone
+          +socialLinks({content: _globalSocial, inverted: true})
+
+      .row.text-center.text-md-left
+        .col-12.col-md-8.mrgn-bottom-15.mrgn-md-bottom-0
+          each item in footerInstitutional
+            a.color-grey.mrgn-right-30(
+              href=item.link,
+              title=item.label,
+              target=item.target
+            )= item.label
+        .col-12.col-md-4
+          p.footer-copyright.text-md-right &copy; #{ new Date().getFullYear() } Brook. All Right Reserved.
+
+  script(src='/dist/bdf.min.js')
+
+  //-
+    Uncomment GTM when updating tag with the proper ID
+    +gtm-noscript

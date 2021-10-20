@@ -1,0 +1,11 @@
+mixin cardPortfolio({content} = {})
+  a.card-portfolio(
+    href=content.link,
+    rel='noreferrer',
+    target='_blank',
+    title=`Learn more about our work with ${content.title}`
+  )
+    .card-portfolio-img(
+      style=`background-image: url(dist/images/portfolio/${content.image})`
+    )
+    h3.card-portfolio-title.text-600= content.title

@@ -1,0 +1,19 @@
+//----------------------------------------------------------------
+// Blog
+//----------------------------------------------------------------
+.blog {
+  background: linear-gradient(to bottom, $bdf-primary 50%, $bdf-base-white 50%);
+
+  &-loader {
+    @extend .shadow;
+    $border-size: bdfRemSize(8);
+    $loader-size: bdfRemSize(40);
+    animation: spin 2s linear infinite;
+    border: $border-size solid $bdf-grey-light;
+    border-radius: 50%;
+    border-top: $border-size solid $bdf-grey;
+    height: $loader-size;
+    margin: 0 auto;
+    width: $loader-size;
+  }
+}

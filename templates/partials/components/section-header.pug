@@ -1,0 +1,5 @@
+mixin sectionHeader({content} = {})
+  header.text-center.animation-slide-up(class=content.color)
+    - var titleCss = content.title.cssMargin || "mrgn-top-35 mrgn-bottom-35 mrgn-lg-bottom-100";
+    p.label(class=content.label.color)= content.label.copy
+    h2.text-600(class=[content.title.color, titleCss].join(""))= content.title.copy

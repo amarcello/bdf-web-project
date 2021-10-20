@@ -1,0 +1,48 @@
+{
+  "name": "bdf-project",
+  "version": "1.0.0",
+  "description": "BDF Project",
+  "main": "gulpfile.babel.js",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "@babel/runtime": "^7.15.4",
+    "autoprefixer": "^9.7.5",
+    "babel-loader": "^8.1.0",
+    "bootstrap": "^5.1.3",
+    "browser-sync": "^2.27.5",
+    "eslint": "^8.0.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-purgecss": "^4.0.3",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.43.2",
+    "webpack-stream": "^5.2.1",
+    "yargs": "^15.3.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amarcello/bdf-project.git"
+  },
+  "author": "BDF Project, by Antonio Marcello",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amarcello/bdf-project/issues"
+  },
+  "homepage": "https://github.com/amarcello/bdf-project#readme"
+}

@@ -1,0 +1,91 @@
+//----------------------------------------------------------------
+// Start
+//----------------------------------------------------------------
+.start {
+  @include media-breakpoint-up(xl) {
+    display: flex;
+  }
+
+  &-col {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: bdfRemSize(60) 0;
+
+    @include media-breakpoint-up(xl) {
+      padding: bdfRemSize(135) 0;
+    }
+
+    &:first-child {
+      @include media-breakpoint-up(xl) {
+        width: 45%;
+      }
+    }
+
+    &:last-child {
+      @include media-breakpoint-up(xl) {
+        transform: translateX(bdfRemSize(-70));
+      }
+    }
+  }
+
+  &-info,
+  &-map-wrapper {
+    height: bdfRemSize(500);
+    max-width: bdfRemSize(385);
+    width: 100%;
+
+    @include media-breakpoint-up(xl) {
+      max-width: none;
+      width: bdfRemSize(385);
+    }
+  }
+
+  &-info {
+    background-color: $bdf-base-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: bdfRemSize(0 45);
+
+    &-title {
+      @include bdfFontRem(24, 38);
+      font-weight: 600;
+    }
+  }
+
+  &-map {
+    height: 100%;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    max-width: bdfRemSize(385);
+    width: 100%;
+
+    &-wrapper {
+      display: none;
+
+      @include media-breakpoint-up(md) {
+        display: block;
+      }
+    }
+
+    iframe {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  &-title {
+    color: $bdf-base-white;
+    font-weight: 600;
+    text-align: center;
+
+    @include media-breakpoint-up(xl) {
+      max-width: bdfRemSize(320);
+    }
+  }
+}

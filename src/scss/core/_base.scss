@@ -1,0 +1,65 @@
+@use 'sass:math';
+
+html {
+  font-size: #{percentage(math.div($font-base, 16))};
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $bdf-grey-dark;
+  font-family: $font-primary, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  transition: all 200ms ease;
+
+  &:hover {
+    color: $bdf-primary;
+  }
+
+  &.link-more {
+    align-items: center;
+    color: $bdf-grey-dark;
+    display: inline-flex;
+    font-weight: 700;
+    transition: all 200ms ease-in;
+
+    &:after {
+      @include bdfFontRem(12);
+      color: $bdf-primary;
+      content: '\f061';
+      font-family: 'Fontawesome';
+      margin-left: bdfRemSize(10);
+      transition: all 200ms ease-in;
+    }
+
+    &:hover {
+      color: $bdf-primary;
+
+      &:after {
+        transform: scaleX(1.2) translateX(bdfRemSize(4));
+      }
+    }
+  }
+}
+
+.brand {
+  max-height: bdfRemSize(52);
+}
+
+@each $overflow in 'hidden', 'visible' {
+  .o-#{$overflow} {
+    overflow: $overflow;
+  }
+}
+
+@each $pos in 'relative', 'fixed', 'absolute' {
+  .p-#{$pos} {
+    position: $pos;
+  }
+}

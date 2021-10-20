@@ -1,0 +1,96 @@
+//----------------------------------------------------------------
+// Card/Blog
+//----------------------------------------------------------------
+&-blog {
+  @extend .p-relative;
+  $size: bdfRemSize(300);
+  $size-xl: bdfRemSize(480);
+  background-color: rgba($bdf-base-black, 0.1);
+  color: $bdf-base-white;
+  display: flex;
+  flex-direction: column;
+  height: $size;
+  justify-content: flex-end;
+  margin: 0 auto;
+  padding: bdfRemSize(50 55);
+  text-align: center;
+  width: $size;
+
+  @include media-breakpoint-up(md) {
+    margin: initial;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: $size-xl;
+    width: $size-xl;
+  }
+
+  &:hover {
+    .card-blog-content {
+      transform: translateY(bdfRemSize(-15));
+    }
+  }
+
+  &-content {
+    @extend .p-relative;
+    transition: transform 200ms ease-in-out;
+  }
+
+  &-icon {
+    @extend .shadow;
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      $size: bdfRemSize(72);
+      align-items: center;
+      background-color: $bdf-primary;
+      border-radius: 50%;
+      display: flex;
+      height: $size;
+      margin: 0 auto bdfRemSize(50);
+      justify-content: center;
+      width: $size;
+    }
+  }
+
+  &-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &,
+    &:before {
+      @extend .p-absolute;
+      height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+
+    &:before {
+      background: rgba($bdf-base-black, 0.4);
+      content: '';
+    }
+  }
+
+  &-meta {
+    @include bdfFontRem(14, 22);
+  }
+
+  &-quote {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+  }
+
+  &-title {
+    @include bdfFontRem(24, 27);
+    font-weight: 600;
+  }
+
+  &:hover {
+    color: $bdf-base-white;
+  }
+}

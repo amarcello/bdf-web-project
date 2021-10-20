@@ -1,0 +1,41 @@
+//----------------------------------------------------------------
+// Function
+//----------------------------------------------------------------
+@function bdfColor($name, $alpha: 1) {
+  @return rgba(map-get($bdfPalette, $name), $alpha);
+}
+
+//----------------------------------------------------------------
+// Classes
+//----------------------------------------------------------------
+@each $name, $color in $bdfPalette {
+  //solid colors
+  .bg-#{'' + $name} {
+    background-color: $color;
+  }
+
+  .border-#{'' + $name} {
+    border-color: $color;
+  }
+
+  .color-#{'' + $name} {
+    color: $color;
+  }
+
+  //alpha colors
+  @for $alpha from 1 through 9 {
+    $perc: $alpha * 0.1;
+
+    .bg-#{'' + $name}-#{$alpha}0 {
+      background-color: bdfColor($name, $perc);
+    }
+
+    .border-#{'' + $name}-#{$alpha}0 {
+      border-color: bdfColor($name, $perc);
+    }
+
+    .color-#{'' + $name}-#{$alpha}0 {
+      color: bdfColor($name, $perc);
+    }
+  }
+}

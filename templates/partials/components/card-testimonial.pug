@@ -1,0 +1,15 @@
+mixin cardTestimonial({content} = {})
+  .card-testimonial.shadow-hover
+    blockquote
+      p.card-testimonial-copy "#{ content.testimonial }"
+      footer.d-flex.align-items-center.mrgn-top-25
+        img.card-testimonial-avatar.mrgn-right-20(
+          src=`dist/images/testimonials/${content.author.avatar}`,
+          alt=content.author.name,
+          loading='lazy'
+        )
+        cite.card-testimonial-author
+          = content.author.name
+          span.mrgn-top-5= content.author.role
+    p.text-right.mrgn-top-15
+      i.fas.fa-quote-right.fa-lg

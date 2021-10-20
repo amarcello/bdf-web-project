@@ -1,0 +1,14 @@
+//----------------------------------------------------------------
+// Shadow
+//----------------------------------------------------------------
+.shadow {
+  box-shadow: 0 bdfRemSize(20 30) 0 rgba($bdf-base-black, 0.1);
+
+  &-hover {
+    transition: all 200ms ease;
+
+    &:hover {
+      box-shadow: 0 bdfRemSize(10 20) 0 rgba($bdf-base-black, 0.1);
+    }
+  }
+}

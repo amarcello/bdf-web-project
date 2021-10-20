@@ -1,0 +1,22 @@
+//----------------------------------------------------------------
+// Social
+//----------------------------------------------------------------
+.social {
+  color: $bdf-base-black;
+
+  &-inverted {
+    color: $bdf-base-white;
+  }
+
+  &-item {
+    color: inherit;
+
+    &:hover {
+      color: $bdf-primary;
+    }
+
+    & + & {
+      margin-left: bdfRemSize(25);
+    }
+  }
+}

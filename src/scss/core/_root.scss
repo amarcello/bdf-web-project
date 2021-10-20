@@ -1,0 +1,14 @@
+//----------------------------------------------------------------
+// Root
+//----------------------------------------------------------------
+:root {
+  // Colors
+  @each $name, $color in $bdfPalette {
+    --#{"" + $name}: #{$color};
+  }
+
+  // Breakpoints
+  @each $name, $value in $bdfBreakpoints {
+    --breakpoint-#{$name}: #{$value};
+  }
+}

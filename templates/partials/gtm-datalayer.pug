@@ -1,0 +1,3 @@
+mixin gtm-datalayer({segment = 'BDF', version = 'prod', pageType = 'landing-page'})
+  script.
+    dataLayer = [{ segment: "#{segment}", version: "#{version}", pageType: "#{pageType}" }];

@@ -1,0 +1,10 @@
+mixin socialLinks({content, inverted = false} = {})
+  .social(class=inverted ? "social-inverted" : "")
+    each social in content
+      a.social-item(
+        href=social.link,
+        title=social.title,
+        target='_blank',
+        rel='noopener'
+      )
+        i.fa(class=`fa-${social.icon}`)

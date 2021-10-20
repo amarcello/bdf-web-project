@@ -1,0 +1,37 @@
+//----------------------------------------------------------------
+// Card/Testimonials
+//----------------------------------------------------------------
+&-testimonial {
+  border-radius: bdfRemSize(2);
+  padding: bdfRemSize(50 45);
+  transition: all 200ms ease;
+  z-index: 1;
+
+  &-author {
+    @include bdfFontRem(18, 20);
+    font-style: normal;
+    font-weight: 600;
+
+    span {
+      @include bdfFontRem(14, 21);
+      display: block;
+      font-weight: 400;
+    }
+  }
+
+  &-avatar {
+    border-radius: 50%;
+    height: bdfRemSize(60);
+    width: bdfRemSize(60);
+  }
+
+  &-copy {
+    @include bdfFontRem(16, 22);
+    font-weight: 500;
+  }
+
+  &:hover {
+    background-color: $bdf-primary;
+    color: $bdf-base-white;
+  }
+}

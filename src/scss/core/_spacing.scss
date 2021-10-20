@@ -1,0 +1,88 @@
+//----------------------------------------------------------------
+// Function
+//----------------------------------------------------------------
+@use 'sass:math';
+
+@function bdfRemSize($sizes) {
+  $rem: null;
+
+  @each $size in $sizes {
+    $converted: math.div($size, $font-base);
+    $value: $converted + rem;
+
+    @if ($converted == 0) {
+      $value: $converted;
+    }
+
+    $rem: #{$rem $value};
+  }
+
+  @return $rem;
+}
+
+//----------------------------------------------------------------
+// Mixin
+//----------------------------------------------------------------
+@mixin bdfSpacing($bp: null, $direction: null) {
+  @for $i from 0 through ($spacing-multiple * 6) {
+    $i: $spacing-multiple * $i;
+
+    @if ($direction) {
+      @if ($bp) {
+        .mrgn-#{$bp}-#{$direction}-#{$i} {
+          @include media-breakpoint-up(#{$bp}) {
+            margin-#{$direction}: bdfRemSize($i);
+          }
+        }
+
+        .pdng-#{$bp}-#{$direction}-#{$i} {
+          @include media-breakpoint-up(#{$bp}) {
+            padding-#{$direction}: bdfRemSize($i);
+          }
+        }
+      } @else {
+        .mrgn-#{$direction}-#{$i} {
+          margin-#{$direction}: bdfRemSize($i);
+        }
+
+        .pdng-#{$direction}-#{$i} {
+          padding-#{$direction}: bdfRemSize($i);
+        }
+      }
+    } @else {
+      @if ($bp) {
+        .mrgn-#{$bp}-#{$i} {
+          @include media-breakpoint-up(#{$bp}) {
+            margin: bdfRemSize($i);
+          }
+        }
+
+        .pdng-#{$bp}-#{$i} {
+          @include media-breakpoint-up(#{$bp}) {
+            padding: bdfRemSize($i);
+          }
+        }
+      } @else {
+        .mrgn-#{$i} {
+          margin: bdfRemSize($i);
+        }
+
+        .pdng-#{$i} {
+          padding: bdfRemSize($i);
+        }
+      }
+    }
+  }
+}
+
+//----------------------------------------------------------------
+// Classes
+//----------------------------------------------------------------
+// Responsive helpers for margin and padding
+@each $dir in $spacing-directions {
+  @include bdfSpacing($direction: $dir);
+
+  @each $breakpoint in map-keys($bdfBreakpoints) {
+    @include bdfSpacing($bp: $breakpoint, $direction: $dir);
+  }
+}

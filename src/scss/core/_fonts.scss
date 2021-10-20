@@ -1,0 +1,32 @@
+//----------------------------------------------------------------
+// Mixins
+//----------------------------------------------------------------
+@use 'sass:math';
+
+@mixin bdfFontRem($s, $lh: null, $ls: null) {
+  font-size: #{math.div($s, $font-base)}rem;
+
+  @if $lh {
+    line-height: #{math.div($lh, $font-base)}rem;
+  }
+
+  @if $ls {
+    letter-spacing: #{math.div($ls, $font-base)}rem;
+  }
+}
+
+//----------------------------------------------------------------
+// Placeholders
+//----------------------------------------------------------------
+@each $weight in $font-weights {
+  %font-primary-#{$weight} {
+    font-family: $font-primary;
+    font-weight: $weight;
+  }
+}
+
+@each $case in $font-transform-cases {
+  %font-#{$case} {
+    text-transform: $case;
+  }
+}
